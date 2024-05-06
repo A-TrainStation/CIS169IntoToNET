@@ -3,6 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using CIS169IntroToNET.Data;
 var builder = WebApplication.CreateBuilder(args);
 
+// Alexander Meiners
+// Due Date: May 15th, 2024
+// C# .NET project
+// Using a bit of HTML
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CIS169IntroToNETContext>(options =>
