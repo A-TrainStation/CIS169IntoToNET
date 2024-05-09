@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CIS169IntroToNET.Data;
+using CIS169IntroToNET.Model;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Alexander Meiners
@@ -15,6 +17,12 @@ builder.Services.AddDbContext<CIS169IntroToNETContext>(options =>
 
 var app = builder.Build();
 
+
+using (var scope = app.Services.CreateScope())
+{
+    var service = scope.ServiceProvider;
+    SeedData.Initialize(service);
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
